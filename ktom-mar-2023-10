@@ -1,0 +1,29 @@
+# Solusi Kontes Terbuka Olimpiade Matematika Maret 2023 : Simulasi OSK Matematika 2023
+# Problem No. 10 Kemampuan Dasar
+# Oleh : Muhammad Reza Fahriyansyah
+# Deskripsi :
+# Untuk suatu bilangan asli n, himpunan S berisikan
+# semua bilangan asli tidak lebih dari n yang bukan kelipatan 4.
+# Tentukan nilai n terkecil sehingga hasil penjumlahan semua anggota S
+# habis dibagi 125 
+
+def tebak (n) :
+  check = 0
+  init = (n+1)*n*0.5 #jumlah semua bilangan asli dari 1 sampai n
+
+  for i in range (n+1) : #mengeliminasi semua kelipatan 4 dari init
+    if (i % 4 == 0) :
+      init = init - i
+  
+  if (init % 125 == 0) : #periksa keterbagian dengan 125
+    check += 1
+  
+  return check
+
+i =1
+while i > 0 :
+  if (tebak (i) == 1) :
+    print (i)
+    i = 0
+  else :
+    i += 1
